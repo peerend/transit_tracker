@@ -34,6 +34,16 @@ class LinesController < ApplicationController
     end
   end
 
+  def destroy
+    @line = Line.find(params[:id])
+    if @line.delete
+      flash[:notice] = "Your line has been deleted."
+      redirect_to lines_path
+    else
+      render('show')
+    end
+  end
+
   private
   def user_params
     params.require(:line).permit(:name)
