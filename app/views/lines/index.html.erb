@@ -1,18 +1,20 @@
 <%= render ("layouts/navbar.html.erb") %>
 
-<h1>Lines</h1>
+<div class="container">
+  <h1>Lines</h1>
 
 
-  <% if @lines != []%>
-  <ul>
-    <% @lines.each do |line|%>
-      <li><a href="lines/<%=line.id%>"><%=line.name%></a></li>
+    <% if @lines != []%>
+    <ul>
+      <% @lines.each do |line|%>
+        <li><a href="lines/<%=line.id%>"><%=line.name%></a></li>
+      <%end%>
+    </ul>
+      <%else%>
+        <p>There are currently no lines</p>
     <%end%>
-  </ul>
-    <%else%>
-      <p>There are currently no lines</p>
-  <%end%>
 
-<h3>Add a line<h3>
+  <h3>Add a line<h3>
 
-<%= render("lines/form.html.erb") %>
+  <%= render("lines/form.html.erb") %>
+</div>

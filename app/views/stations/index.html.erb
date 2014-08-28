@@ -1,18 +1,20 @@
 <%= render ("layouts/navbar.html.erb") %>
 
-<h1>Stations</h1>
+<div class="container">
+  <h1>Stations</h1>
 
 
-  <% if @stations != []%>
-  <ul>
-    <% @stations.each do |station|%>
-      <li><a href="stations/<%=station.id%>"><%=station.name%></a></li>
+    <% if @stations != []%>
+    <ul>
+      <% @stations.each do |station|%>
+        <li><a href="stations/<%=station.id%>"><%=station.name%></a></li>
+      <%end%>
+    </ul>
+      <%else%>
+        <p>There are currently no stations</p>
     <%end%>
-  </ul>
-    <%else%>
-      <p>There are currently no stations</p>
-  <%end%>
 
-<h3>Add a station<h3>
+  <h3>Add a station<h3>
 
-<%= render("stations/form.html.erb") %>
+  <%= render("stations/form.html.erb") %>
+</div>

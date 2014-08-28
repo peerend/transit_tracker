@@ -1,0 +1,20 @@
+<%= render ("layouts/navbar.html.erb") %>
+
+<div class="container">
+
+  <h1>Stop</h1>
+    <% if @stops != []%>
+    <ul>
+      <% @stops.each do |stop|%>
+        <li><a href="stops/<%=stop.id%>"><%=stop.station.name%> | <%=stop.line.name %> Line</a></li>
+      <%end%>
+    </ul>
+      <%else%>
+        <p>There are currently no stops. Add some. </p>
+    <%end%>
+
+  <h3>Select a line and station.<h3>
+
+  <%= render("stops/form.html.erb") %>
+
+</div>
