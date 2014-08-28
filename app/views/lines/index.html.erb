@@ -1,0 +1,16 @@
+<h1>Lines</h1>
+
+
+  <% if @lines != []%>
+  <ul>
+    <% @lines.each do |line|%>
+      <li><%=line.name%></li>
+    <%end%>
+  </ul>
+    <%else%>
+      <p>There are currently no lines</p>
+  <%end%>
+
+<h3>Add a line<h3>
+
+<%= render("lines/form.html.erb") %>
