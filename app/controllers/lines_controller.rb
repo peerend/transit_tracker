@@ -15,21 +15,17 @@ class LinesController < ApplicationController
     end
   end
 
+  def show
+    @line = Line.find(params[:id])
+  end
+
+  def edit
+    @line = Line.find(params[:id])
+    render 'show'
+  end
+
   private
   def user_params
     params.require(:line).permit(:name)
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
