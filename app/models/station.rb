@@ -1,6 +1,9 @@
 class Station < ActiveRecord::Base
 
-  has_and_belongs_to_many :lines
+  validates :name, :presence => true
+
+  has_many :stops
+  has_many :lines, through: :stops
   has_many :tables, through: :stops
 
 end
