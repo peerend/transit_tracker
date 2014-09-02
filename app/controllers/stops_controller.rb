@@ -28,7 +28,7 @@ class StopsController < ApplicationController
     @stop = Stop.find(params[:id])
     if @stop.update(user_params)
       flash[:notice]= "Your stop has been updated."
-      redirect_to stops_path
+      redirect_to edit_stop_path
     else
       render('show')
     end
@@ -46,7 +46,7 @@ class StopsController < ApplicationController
 
   private
   def user_params
-    params.require(:stop).permit(:station_id, :line_id)
+    params.require(:stop).permit(:station_id, :line_id, tables_attributes: [:time, :stop_id])
   end
 
 end

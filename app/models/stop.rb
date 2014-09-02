@@ -5,4 +5,6 @@ class Stop < ActiveRecord::Base
   belongs_to :line
   belongs_to :station
 
+  accepts_nested_attributes_for :tables
+
 end

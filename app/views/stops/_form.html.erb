@@ -1,22 +1,20 @@
 <%= render("layouts/errors", :object => @stop) %>
 
-<%= form_for(@stop) do |f| %>
+<%= form_for(setup_table(@stop)) do |f| %>
   <div class="form-group">
 
-  <%= f.collection_select :station_id, Station.order(:name), :id, :name, include_blank: true %>
-  <%= f.collection_select :line_id, Line.order(:name), :id, :name, include_blank: true %>
+    <%= f.collection_select :station_id, Station.order(:name), :id, :name, include_blank: true %>
+    <%= f.collection_select :line_id, Line.order(:name), :id, :name, include_blank: true %>
 
-
-
-
-
-
-
-
+<!-- this is not working  -->
+    <%= f.fields_for :tables do |ff| %>
+      <div>
+        <%= ff.label :time %>
+        <%= ff.time_select :time, :ignore_date => true %>
+      </div>
+    <% end %>
 
 
   </div>
   <%= f.submit(:class => "btn btn-primary") %>
 <% end %>
-
-
