@@ -5,11 +5,12 @@
   <p>Associated Lines:</p>
   <ul>
     <% @station.lines.each do |line| %>
-      <li><a href = "/lines/<%=line.id%>"><%= line.name %></li>
+      <li><a href = "/lines/<%=line.id%>"><%= line.name %></a></li>
     <% end %>
   </ul>
 
   <div id="box">
+
     <%= render("stations/form.html.erb") %>
 
     <p><%= link_to "Delete", station_path(@station),

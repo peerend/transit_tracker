@@ -5,17 +5,18 @@
 
 
     <% if @lines != []%>
-    <ul>
-      <% @lines.each do |line|%>
-        <li><a href="lines/<%=line.id%>"><%=line.name%></a></li>
-      <%end%>
-    </ul>
-      <%else%>
-        <p>There are currently no lines</p>
-    <%end%>
+      <ul>
+        <% @lines.each do |line|%>
+          <li><a href="lines/<%=line.id%>"><%=line.name%></a></li>
+        <%end%>
+      </ul>
+    <% else %>
+      <p>There are currently no lines</p>
+    <% end %>
 
   <div id="box">
-    <h3>Add a line<h3>
+    <h3>Add a line</h3>
     <%= render("lines/form.html.erb") %>
   </div>
+
 </div>

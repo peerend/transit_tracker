@@ -1,18 +1,22 @@
 <%= render ("layouts/navbar.html.erb") %>
 
 <div class="container">
+
   <h1><%= @line.name %></h1>
   <p>Associated Stations:</p>
   <ul>
     <% @line.stations.each do |station| %>
-      <li><a href = "/stations/<%=station.id%>"><%= station.name %></a></li>
+      <li><a href="stations/<%=station.id%>"><%= station.name %></a></li>
     <% end %>
   </ul>
 
-  <%= render("lines/form.html.erb") %>
-
-  <p><%= link_to "Delete", line_path(@line),
-                           :data => {:confirm => "You sure?",
-                                     :method => "delete"},
-                           :class => "btn btn-danger" %></p>
+  <div id="box">
+    <%= render("lines/form.html.erb") %>
+    <p><%= link_to "Delete", line_path(@line),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"},
+                             :class => "btn btn-danger" %></p>
+  </div>
 </div>
+
+
