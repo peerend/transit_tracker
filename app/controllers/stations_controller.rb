@@ -26,12 +26,15 @@ class StationsController < ApplicationController
 
   def update
     @station = Station.find(params[:id])
+
     if @station.update(user_params)
       flash[:notice]= "Your station has been updated."
-      redirect_to stations_path
+      redirect_to edit_station_path
     else
+      flash[:notice]= "Your station failed to update."
       render('show')
     end
+
   end
 
   def destroy
@@ -46,6 +49,6 @@ class StationsController < ApplicationController
 
   private
   def user_params
-    params.require(:station).permit(:name)
+    params.require(:station).permit(:name, line_ids:[])
   end
 end
