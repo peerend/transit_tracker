@@ -1,4 +1,4 @@
-<%= render("layouts/errors", :object => @stop) %>
+<%#= render("layouts/errors", :object => @stop) %>
 
 <%= form_for(setup_table @stop) do |f| %>
   <div class="form-group">
@@ -9,12 +9,12 @@
     <%= f.fields_for :tables do |ff| %>
       <div>
         <%= ff.label :time %>
-        <%= ff.time_select :time, :ignore_date => true %>
+        <%= ff.time_select :time, :ignore_date => true, include_blank: true %>
 
-        <%# if ff.object.persisted? %>
-          <%#= ff.check_box :_destroy %>
-          <%#= ff.label :_destroy, "Destroy" %>
-        <%# end %>
+        <% if ff.object.persisted? %>
+          <%= ff.check_box :_destroy %>
+          <%= ff.label :_destroy, "Destroy" %>
+        <% end %>
 
       </div>
     <% end %>

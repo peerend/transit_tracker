@@ -1,15 +1,11 @@
 class Stop < ActiveRecord::Base
 
-  has_many :tables, :dependent => :destroy
+  has_many :tables
+
+
 
   belongs_to :line
   belongs_to :station
 
-  accepts_nested_attributes_for :tables
+  accepts_nested_attributes_for :tables, :reject_if => :all_blank, :allow_destroy => true
 end
-
-
-#   , :reject_if => lambda { |a| a[:time].blank? }, :allow_destroy => true
-# end
-
-

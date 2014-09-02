@@ -6,7 +6,7 @@
     <% if @stops != []%>
     <ul>
       <% @stops.each do |stop|%>
-        <li><a href="stops/<%=stop.id%>"><%=stop.station.name%> | <%=stop.line.name %> Line</a></li>
+        <li><a href="/stops/<%=stop.id%>"><%=stop.station.name%> | <%=stop.line.name %> Line</a></li>
       <%end%>
     </ul>
       <%else%>
