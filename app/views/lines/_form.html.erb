@@ -1,9 +1,23 @@
 <%= render("layouts/errors", :object => @line) %>
 
 <%= form_for(@line) do |f| %>
+
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
-  <%= f.submit(:class => "btn btn-primary") %>
+
+  <div>
+    <h3>Add Stations</h3>
+    <%= hidden_field_tag "line[station_ids][]", nil %>
+    <% Station.all.each do |station| %>
+      <%= check_box_tag "line[station_ids][]", station.id, @line.station_ids.include?(station.id), id: dom_id(station) %>
+      <%= label_tag dom_id(station), station.name %></br>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.submit(:class => "btn btn-primary") %>
+  </div>
+
 <% end %>

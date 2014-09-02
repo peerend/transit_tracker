@@ -28,7 +28,7 @@ class LinesController < ApplicationController
     @line = Line.find(params[:id])
     if @line.update(user_params)
       flash[:notice]= "Your line has been updated."
-      redirect_to lines_path
+      redirect_to edit_line_path
     else
       render('show')
     end
@@ -46,6 +46,6 @@ class LinesController < ApplicationController
 
   private
   def user_params
-    params.require(:line).permit(:name)
+    params.require(:line).permit(:name, station_ids: [])
   end
 end

@@ -5,7 +5,7 @@
   <p>Associated Lines:</p>
   <ul>
     <% @station.lines.each do |line| %>
-      <li><%= line.name %></li>
+      <li><a href = "/lines/<%=line.id%>"><%= line.name %></li>
     <% end %>
   </ul>
 

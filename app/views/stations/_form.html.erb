@@ -3,12 +3,12 @@
 
   <%= form_for(@station) do |f| %>
 
-  <div class="form-group" class="field">
+  <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
 
-  <div class="field">
+  <div>
     <h3>Add Lines</h3>
     <%= hidden_field_tag "station[line_ids][]", nil %>
     <% Line.all.each do |line| %>
@@ -17,7 +17,7 @@
     <% end %>
   </div>
 
-  <div class="actions">
+  <div>
     <%= f.submit(:class => "btn btn-primary") %>
   </div>
 <% end %>
