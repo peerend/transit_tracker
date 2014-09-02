@@ -1,6 +1,7 @@
 module FormHelper
   def setup_table(stop)
-    stop.tables << Table.new
+    object = Table.new
+    stop.tables << object
     stop
   end
 end
